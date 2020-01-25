@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 7px;
+}
+i {
+ color: white
+}
+
+button {
+    background-color: blue;
+    border: none;
+    width: 3%;
+    padding: 3px;
+}
+
+input  {
+    width: 10px;
+   
+}
