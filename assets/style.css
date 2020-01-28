@@ -1,4 +1,5 @@
-body {
+
+ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -14,14 +15,29 @@ i {
  color: white
 }
 
-button {
-    background-color: blue;
-    border: none;
-    width: 3%;
-    padding: 3px;
-}
+
 
 input  {
     width: 10px;
+   
+}
+
+h3 {
+    color: black;
+}
+
+.container{
+    background: #ccc;
+    text-align: right ;
+}
+.weather{
+    font-size: 22px;
+    margin: 0;
+
+}
+
+.temp{
+    font-size: 60px;
+    margin: 0;
    
 }
