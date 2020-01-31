@@ -1,5 +1,5 @@
 // var cities = JSON.parse(localStorage.getItem('cities'))
-var cities = ["", ""];
+var cities = ["Austin"];
 //push user's cities to this array
 //use a function to display this array to the page
 
@@ -20,7 +20,7 @@ console.log(JSON.stringify(myArr))
 localStorage.setItem('cities', JSON.stringify(myArr)) */
 
 $(document).ready(function() {
-    console.log(localStorage);
+    // console.log(localStorage);
 
     if (cities.length > 0) {
         searchColumn.removeClass('col-12').addClass('col-4')
@@ -75,7 +75,7 @@ function displayCity(city) {
 
     //adding my api
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c543d81336efb61834c78f11f88bf83b", function(data) {
-        console.log(data);
+        // console.log(data);
         $(".city").html("");
 
         var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
@@ -89,6 +89,45 @@ function displayCity(city) {
         $('.temp').append("Temperature: " + temp + "ºF");
         $('.humidity').append("Humidity: " + humidity + "%");
         $('.windspeed').append("Windspeed: " + windspeed + "MPH");
+        $('.UVI').append("UVI: " + UVI);
+    });
+
+    getFiveDayForecast(city);
+}
+
+
+
+function getFiveDayForecast(location) {
+    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + location + "&units=imperial&appid=c543d81336efb61834c78f11f88bf83b", function(data) {
+        console.log(data.list);
+
+        for (var i = 0; i <= 4; i++) {
+            console.log(data.list[i])
+
+            var forecastDiv = $("<div>");
+            var p = $("<p>").text("temperature:" + data.list[i].main.temp);
+            forecastDiv.append(p)
+            $("#forecast").append(forecastDiv)
+        }
+
+
+
+
+
+        // $(".city").html("");
+
+        // var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+        // console.log(icon);
+        // var temp = Math.floor(data.main.temp);
+        // var humidity = Math.floor(data.main.humidity);
+        // var windspeed = data.wind.speed
+
+        // $('.icon').attr('src', icon);
+        // $('.city').append("Location: " + city);
+        // $('.temp').append("Temperature: " + temp + "ºF");
+        // $('.humidity').append("Humidity: " + humidity + "%");
+        // $('.windspeed').append("Windspeed: " + windspeed + "MPH");
+        // $('.UVI').append("UVI: " + UVI);
     });
 }
 
