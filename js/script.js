@@ -74,11 +74,11 @@ $(document).ready(function() {
 function displayCity(city) {
 
     //adding my api
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c543d81336efb61834c78f11f88bf83b", function(data) {
+    $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c543d81336efb61834c78f11f88bf83b", function(data) {
         // console.log(data);
         $(".city").html("");
 
-        var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+        var icon = "https//openweathermap.org/img/w/" + data.weather[0].icon + ".png";
         console.log(icon);
         var temp = Math.floor(data.main.temp);
         var humidity = Math.floor(data.main.humidity);
@@ -98,7 +98,7 @@ function displayCity(city) {
 
 
 function getFiveDayForecast(location) {
-    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + location + "&units=imperial&appid=c543d81336efb61834c78f11f88bf83b", function(data) {
+    $.getJSON("https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&units=imperial&appid=c543d81336efb61834c78f11f88bf83b", function(data) {
         console.log(data.list);
 
         for (var i = 0; i <= 4; i++) {
